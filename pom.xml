@@ -216,5 +216,23 @@
   <prerequisites>
     <maven>3.0.3</maven>
   </prerequisites>
-
+         
+<repositories>
+    <repository>
+      <id>maven-group</id>
+      <url>http://192.168.44.155:8081/repository/maven-group/</url>
+    </repository>
+  </repositories>
+         
+ <distributionManagement>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <url>http://your-host:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://192.168.44.155:8081/repository/maven-releases/</url>
+    </repository>
+  </distributionManagement>
+         
 </project>
