@@ -2,8 +2,8 @@ pipeline {
 agent any&lt;/code&gt;
  
 tools{
-maven 'maven 3'
-jdk 'java 8'
+maven 'maven'
+jdk 'jdk-1.8'
 }
  
 stages {
@@ -24,7 +24,7 @@ echo "M2_HOME = ${M2_HOME}"
 stage ('Build project') {
 steps {
 dir("project_templates/java_project_template"){
-sh 'mvn clean verify
+sh 'mvn clean verify'
  
 }
 }
@@ -49,7 +49,7 @@ def server = Artifactory.server('artifactory')
 def rtMaven = Artifactory.newMavenBuild()
 rtMaven.resolver server: server, releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot'
 rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
-rtMaven.tool = 'maven 3'
+rtMaven.tool = 'maven'
 def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'install'
 server.publishBuildInfo buildInfo
 }
