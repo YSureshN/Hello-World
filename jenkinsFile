@@ -13,6 +13,7 @@ steps {
 git branch: 'master', url: 'https://github.com/YSureshN/Hello-World.git'
 }
 }
+}
 stage ("initialize") {
 steps {
 sh '''
@@ -25,7 +26,6 @@ stage ('Build project') {
 steps {
 dir("project_templates/java_project_template"){
 sh 'mvn clean verify'
- 
 }
 }
 }
